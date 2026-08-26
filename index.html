@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillBridge — Skill-to-Internship Matching & Skill Gap Portal (SIH26044)</title>
+
+  <!-- Google Fonts & Chart.js CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="brand" data-view-target="landing-view">
+        <div class="brand-icon">🎓</div>
+        <div class="brand-text">
+          <h1>SkillBridge <span class="brand-badge">SIH 2026</span></h1>
+          <p>Skill Mapping & Gap Analysis Portal</p>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><button class="nav-btn active" data-view="landing-view">Home</button></li>
+        <li><button class="nav-btn" data-view="matcher-view">Find Match</button></li>
+        <li><button class="nav-btn" data-view="gap-report-view">Skill Gap Roadmap</button></li>
+        <li><button class="nav-btn nav-btn-highlight" data-view="presentation-view">📊 SIH PPT Deck</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content Container -->
+  <main>
+
+    <!-- VIEW 1: LANDING PAGE -->
+    <section id="landing-view" class="view-section active">
+      <div class="hero-section">
+        <div class="hero-tag">🏛️ Ministry of Ayush / MSDE • Problem ID: SIH26044</div>
+        <h1 class="hero-title">Know Your <span>Skill Fit</span>. Close Your <span>Gap</span>.</h1>
+        <p class="hero-desc">
+          Stop applying blindly to internships. Discover your real-time compatibility score across top industry roles and get an actionable learning roadmap of the highest-value skills to master next.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-view-target="matcher-view">🚀 Calculate My Skill Match</button>
+          <button class="btn btn-secondary" data-view-target="gap-report-view">📊 View Skill Gap Analytics</button>
+          <button class="btn btn-primary" style="background:#0f172a;" data-view-target="presentation-view">🏆 SIH Presentation</button>
+        </div>
+      </div>
+
+      <!-- Trust Metrics -->
+      <div class="stats-banner">
+        <div class="stat-item">
+          <div class="stat-num">Live %</div>
+          <div class="stat-label">Real-time Compatibility Match</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Transparent Skill Breakdown</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">Top 5</div>
+          <div class="stat-label">Aggregated Missing Gap Priority</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3x</div>
+          <div class="stat-label">Higher Interview Selection Rate</div>
+        </div>
+      </div>
+
+      <!-- Feature Value Props -->
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Deterministic Matching Math</h3>
+          <p>Instant overlap computation against industry standard competency frameworks. See exactly which prerequisites you satisfy in green and which ones you're missing in red.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3>Aggregated Skill Gap Prioritization</h3>
+          <p>Instead of guessing what tutorial to watch, SkillBridge pinpoints the exact skills appearing most frequently across your dream roles so you learn with high ROI.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔄</div>
+          <h3>Interactive Progress Tracker</h3>
+          <p>Mark skills as learned directly from your roadmap to see your match score climb from 40% to 90%+ in real time.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: INTERACTIVE SKILL INPUT & LIVE MATCHING -->
+    <section id="matcher-view" class="view-section">
+      <div class="matcher-split">
+
+        <!-- Left: Skill Checklist Panel -->
+        <div class="skill-panel">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; border-bottom:1px solid #e2e8f0; padding-bottom:0.75rem;">
+            <div>
+              <h2 style="font-size:1.25rem; font-weight:800;">My Skill Profile</h2>
+              <p style="font-size:0.8rem; color:#64748b;" id="selected-skills-count">3 Skills Selected</p>
+            </div>
+            <span class="brand-badge" style="background:#e0e7ff; color:#3730a3;">Live Sync</span>
+          </div>
+
+          <!-- Domain & Year Filters -->
+          <div style="margin-bottom:1.25rem;">
+            <label style="font-size:0.8rem; font-weight:700; display:block; margin-bottom:0.35rem;">Target Domain</label>
+            <select id="filter-domain" class="btn btn-secondary" style="width:100%; padding:0.55rem; font-size:0.85rem; border-radius:8px;">
+              <option value="all">All Domains (Software, Data, Design, etc.)</option>
+              <option value="Software Dev">Software Development</option>
+              <option value="Data Science">Data Science & AI</option>
+              <option value="Design">UI/UX & Product Design</option>
+              <option value="Marketing">Growth & Marketing</option>
+            </select>
+          </div>
+
+          <!-- Category 1: Programming -->
+          <div class="skill-category-block">
+            <div class="cat-title"><span>💻 Programming Languages</span></div>
+            <div class="skill-tag-group">
+              <label class="skill-check-tag"><input type="checkbox" value="Python"><span class="tag-content">Python</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="Java"><span class="tag-content">Java</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="JavaScript"><span class="tag-content">JavaScript</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="C++"><span class="tag-content">C++</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="Node.js"><span class="tag-content">Node.js</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="Data Structures"><span class="tag-content">Data Structures</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="Problem Solving"><span class="tag-content">Problem Solving</span></label>
+            </div>
+          </div>
+
+          <!-- Category 2: Web Dev -->
+          <div class="skill-category-block">
+            <div class="cat-title"><span>🌐 Web Development</span></div>
+            <div class="skill-tag-group">
+              <label class="skill-check-tag"><input type="checkbox" value="HTML/CSS"><span class="tag-content">HTML/CSS</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="React"><span class="tag-content">React</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="Tailwind CSS"><span class="tag-content">Tailwind CSS</span></label>
+            </div>
+          </div>
+
+          <!-- Category 3: Data Skills -->
+          <div class="skill-category-block">
+            <div class="cat-title"><span>📊 Data & Analytics</span></div>
+            <div class="skill-tag-group">
+              <label class="skill-check-tag"><input type="checkbox" value="SQL"><span class="tag-content">SQL</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="Pandas"><span class="tag-content">Pandas</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="NumPy"><span class="tag-content">NumPy</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="Power BI"><span class="tag-content">Power BI</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="Excel"><span class="tag-content">Excel</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="Tableau"><span class="tag-content">Tableau</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="Machine Learning"><span class="tag-content">Machine Learning</span></label>
+            </div>
+          </div>
+
+          <!-- Category 4: Design -->
+          <div class="skill-category-block">
+            <div class="cat-title"><span>🎨 UI/UX & Design</span></div>
+            <div class="skill-tag-group">
+              <label class="skill-check-tag"><input type="checkbox" value="Figma"><span class="tag-content">Figma</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="UI/UX Design"><span class="tag-content">UI/UX Design</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="Canva"><span class="tag-content">Canva</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="Adobe Photoshop"><span class="tag-content">Photoshop</span></label>
+            </div>
+          </div>
+
+          <!-- Category 5: Soft Skills -->
+          <div class="skill-category-block">
+            <div class="cat-title"><span>🤝 Professional & Soft Skills</span></div>
+            <div class="skill-tag-group">
+              <label class="skill-check-tag"><input type="checkbox" value="Communication"><span class="tag-content">Communication</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="Teamwork"><span class="tag-content">Teamwork</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="Leadership"><span class="tag-content">Leadership</span></label>
+              <label class="skill-check-tag"><input type="checkbox" value="Presentation"><span class="tag-content">Presentation</span></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Ranked Match Results -->
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:1px solid #e2e8f0;">
+            <div>
+              <h2 style="font-size:1.35rem; font-weight:800;">Ranked Internship Matches</h2>
+              <p style="font-size:0.85rem; color:#64748b;">Live compatibility percentage updates automatically as skills change</p>
+            </div>
+            <button class="btn btn-primary" style="padding:0.45rem 1rem; font-size:0.82rem;" data-view-target="gap-report-view">
+              📊 View Full Gap Report
+            </button>
+          </div>
+
+          <div id="matched-internships-list" class="results-container">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VIEW 3: SKILL GAP REPORT & ROADMAP -->
+    <section id="gap-report-view" class="view-section">
+      <div class="gap-report-card">
+        <div style="margin-bottom:2rem;">
+          <h2 style="font-size:1.6rem; font-weight:800; margin-bottom:0.35rem;">🎯 Prioritized Skill Gap Analysis</h2>
+          <p style="color:#64748b;">Skills most frequently required across your top matched internships. Master these to maximize your placement readiness!</p>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items:start;">
+          
+          <!-- Left: Ranked Missing Skills with "Mark as Learned" -->
+          <div>
+            <h3 style="font-size:1.1rem; font-weight:800; margin-bottom:1rem; color:var(--text-main);">
+              🔥 Top Priority Skills to Learn Next:
+            </h3>
+            <div id="gap-list-container">
+              <!-- Dynamically rendered by app.js -->
+            </div>
+          </div>
+
+          <!-- Right: Gap Frequency Chart -->
+          <div style="background:var(--bg-alt); padding:1.5rem; border-radius:14px; border:1px solid var(--border-subtle);">
+            <h3 style="font-size:1.05rem; font-weight:800; margin-bottom:1rem;">📊 Missing Skill Frequency Breakdown</h3>
+            <canvas id="skillGapChart" height="220"></canvas>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: SIH PRESENTATION SLIDE DECK -->
+    <section id="presentation-view" class="view-section">
+      <div class="slide-deck-container">
+        
+        <div class="slide-header">
+          <span>🏆 Smart India Hackathon 2026 Pitch Deck</span>
+          <span id="slide-counter">Slide 1 of 6</span>
+        </div>
+
+        <div class="slide-screen">
+
+          <!-- Slide 1: Title -->
+          <div class="slide-content active">
+            <div class="slide-title-tag">SIH26044 • Ministry of Ayush / MSDE</div>
+            <h2 class="slide-heading">SkillBridge 🎓</h2>
+            <h3 style="color:var(--primary); font-size:1.4rem; font-weight:700; margin-bottom:1.5rem;">Know Your Fit, Close Your Gap</h3>
+            <p style="font-size:1.1rem; color:var(--text-muted);">An Intelligent Portal for Academia-Industry Skill Mapping, Dynamic Match Scoring, and Automated Learning Roadmaps.</p>
+            <div style="margin-top:2rem; padding:1rem; background:var(--bg-alt); border-radius:8px; display:inline-block; font-size:0.9rem;">
+              <strong>Team:</strong> Antigravity Innovators • <strong>Track:</strong> Career-Tech / Skill Mapping
+            </div>
+          </div>
+
+          <!-- Slide 2: The Problem -->
+          <div class="slide-content">
+            <div class="slide-title-tag">The Challenge</div>
+            <h2 class="slide-heading">Blind Applications & High Rejection Rates</h2>
+            <ul class="slide-body-points">
+              <li>
+                <span>🔴</span>
+                <div><strong>Application Fatigue:</strong> College students apply to 50+ internships blindly without knowing if they meet real prerequisites.</div>
+              </li>
+              <li>
+                <span>🔴</span>
+                <div><strong>Zero Feedback:</strong> Standard portals reject candidates without explaining what specific skills they were missing.</div>
+              </li>
+              <li>
+                <span>🔴</span>
+                <div><strong>Curriculum Mismatch:</strong> Academic coursework lags behind fast-moving industry requirements by 2–3 years.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Slide 3: The Market Gap -->
+          <div class="slide-content">
+            <div class="slide-title-tag">Existing Gap</div>
+            <h2 class="slide-heading">Static Portals Offer No Actionable Insights</h2>
+            <ul class="slide-body-points">
+              <li>
+                <span>⚠️</span>
+                <div><strong>Wall of Text Requirements:</strong> Internshala, LinkedIn, and Naukri list 15 skills per post with zero personalized fit scores.</div>
+              </li>
+              <li>
+                <span>⚠️</span>
+                <div><strong>No Learning Direction:</strong> Students don't know which high-ROI skill will unlock the most opportunities.</div>
+              </li>
+              <li>
+                <span>⚠️</span>
+                <div><strong>Placement Cell Blindness:</strong> Colleges cannot see aggregate skill deficiencies across their batch to organize workshops.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Slide 4: Our Solution -->
+          <div class="slide-content">
+            <div class="slide-title-tag">Proposed Solution</div>
+            <h2 class="slide-heading">Dynamic Match Engine & Gap Analyzer</h2>
+            <ul class="slide-body-points">
+              <li>
+                <span>✅</span>
+                <div><strong>Real-Time Compatibility Math:</strong> Computes overlap percentage between student skills and required competencies on the fly.</div>
+              </li>
+              <li>
+                <span>✅</span>
+                <div><strong>Transparent Visual Breakdown:</strong> Clearly marks possessed skills in Green and missing prerequisites in Red.</div>
+              </li>
+              <li>
+                <span>✅</span>
+                <div><strong>Aggregated Gap Prioritization:</strong> Groups missing skills across top dream roles into a prioritized learning list with Chart.js.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Slide 5: Tech Stack & Architecture -->
+          <div class="slide-content">
+            <div class="slide-title-tag">Technical Details</div>
+            <h2 class="slide-heading">Reactive Client Engine & Scalable Analytics</h2>
+            <ul class="slide-body-points">
+              <li>
+                <span>💻</span>
+                <div><strong>Frontend:</strong> Modern HTML5, Responsive CSS3, and Reactive ES6 State.</div>
+              </li>
+              <li>
+                <span>⚙️</span>
+                <div><strong>Matching Engine:</strong> Set intersection & overlap calculation executing in &lt;1ms.</div>
+              </li>
+              <li>
+                <span>📊</span>
+                <div><strong>Visualizations:</strong> Chart.js frequency histograms for skill gap distribution.</div>
+              </li>
+              <li>
+                <span>📁</span>
+                <div><strong>Data Tier:</strong> Standardized JSON competency taxonomies and LocalStorage state.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Slide 6: Social Impact & Future Roadmap -->
+          <div class="slide-content">
+            <div class="slide-title-tag">Future Scope</div>
+            <h2 class="slide-heading">Bridging India's Graduate Employability Gap</h2>
+            <ul class="slide-body-points">
+              <li>
+                <span>🚀</span>
+                <div><strong>Impact:</strong> Turns job hunting from discouraging rejection into an empowering, gamified skill progression journey.</div>
+              </li>
+              <li>
+                <span>🚀</span>
+                <div><strong>Curated Learning Links:</strong> Auto-recommending free NPTEL, YouTube, and Coursera tutorials for each missing skill.</div>
+              </li>
+              <li>
+                <span>🚀</span>
+                <div><strong>Placement Cell Dashboard:</strong> Institutional analytics helping colleges identify student skill trends and partner with hiring companies.</div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Slide Controls -->
+        <div class="slide-nav-bar">
+          <button class="btn btn-secondary" id="slide-prev-btn" style="padding:0.45rem 1.1rem; font-size:0.85rem;">◀ Previous</button>
+          
+          <div class="slide-dots">
+            <span class="slide-dot active" onclick="jumpToSlide(0)"></span>
+            <span class="slide-dot" onclick="jumpToSlide(1)"></span>
+            <span class="slide-dot" onclick="jumpToSlide(2)"></span>
+            <span class="slide-dot" onclick="jumpToSlide(3)"></span>
+            <span class="slide-dot" onclick="jumpToSlide(4)"></span>
+            <span class="slide-dot" onclick="jumpToSlide(5)"></span>
+          </div>
+
+          <button class="btn btn-primary" id="slide-next-btn" style="padding:0.45rem 1.1rem; font-size:0.85rem;">Next ▶</button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="toast-notification" class="toast-msg">
+    <span>Notification message</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
