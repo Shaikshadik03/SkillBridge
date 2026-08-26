@@ -1,5 +1,5 @@
 /**
- * SkillBridge Application Logic & Live Skill Matching Engine
+ * SkillBridge Application Logic & Live Cyber Matching Engine
  */
 
 const DEFAULT_INTERNSHIPS = [
@@ -168,7 +168,7 @@ function initSkillCheckboxes() {
     cb.addEventListener("change", () => {
       if (cb.checked) {
         userSkills.add(cb.value);
-        showToast(`Added ${cb.value} to your profile!`);
+        showToast(`+ Added ${cb.value}`);
       } else {
         userSkills.delete(cb.value);
       }
@@ -217,9 +217,9 @@ function renderMatchingCards(list) {
 
   if (list.length === 0) {
     container.innerHTML = `
-      <div style="background:white; padding:3rem; text-align:center; border-radius:16px; border:1px solid #e2e8f0;">
-        <h3>No internships found in this domain</h3>
-        <p style="color:#64748b; margin-top:0.5rem;">Try selecting "All Domains" or pick more skills!</p>
+      <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:3rem; text-align:center; border-radius:16px;">
+        <h3 style="color:#ffffff;">No internships found in this domain</h3>
+        <p style="color:#94a3b8; margin-top:0.5rem;">Select "All Domains" or toggle more skills to expand search results.</p>
       </div>
     `;
     return;
@@ -227,11 +227,12 @@ function renderMatchingCards(list) {
 
   container.innerHTML = list.map(item => {
     const tier = item.matchPct >= 80 ? "high" : item.matchPct >= 50 ? "med" : "low";
+    const tierColor = item.matchPct >= 80 ? "#10b981" : item.matchPct >= 50 ? "#f59e0b" : "#f43f5e";
     const tierText = item.matchPct >= 80 ? "High Match" : item.matchPct >= 50 ? "Moderate" : "Gap Alert";
 
     return `
-      <div class="internship-card">
-        <img src="${item.logo || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=120&auto=format&fit=crop&q=80'}" alt="${item.company}" class="company-logo-img">
+      <div class="cyber-card">
+        <img src="${item.logo || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=120&auto=format&fit=crop&q=80'}" alt="${item.company}" class="company-logo">
 
         <div class="card-main">
           <div style="display:flex; justify-content:space-between; align-items:flex-start;">
@@ -244,37 +245,37 @@ function renderMatchingCards(list) {
               </div>
             </div>
 
-            <div class="match-ring-box">
-              <div class="match-ring ${tier}" style="--pct: ${item.matchPct}">
-                <div class="match-ring-inner">${item.matchPct}%</div>
+            <div class="neon-gauge-box">
+              <div class="neon-gauge-ring ${tier}" style="--pct: ${item.matchPct}">
+                <div class="neon-gauge-inner">${item.matchPct}%</div>
               </div>
-              <span class="match-status-label ${tier}">${tierText}</span>
+              <span style="font-size:0.62rem; font-weight:800; text-transform:uppercase; color:${tierColor};">${tierText}</span>
             </div>
           </div>
 
-          <div class="meta-pills">
+          <div style="display:flex; gap:0.75rem; font-size:0.8rem; color:#94a3b8; margin:0.5rem 0 0.85rem;">
             <span>💰 ${item.stipend}</span>
             <span>⏱️ ${item.duration}</span>
             <span>🏷️ ${item.domain}</span>
           </div>
 
-          <p style="font-size:0.88rem; color:#475569; margin-bottom:0.85rem;">${item.description}</p>
+          <p style="font-size:0.86rem; color:#cbd5e1; margin-bottom:0.85rem;">${item.description}</p>
 
-          <div style="font-size:0.8rem; font-weight:700; color:#64748b; margin-bottom:0.4rem;">
+          <div style="font-size:0.78rem; font-weight:700; color:#94a3b8; margin-bottom:0.4rem;">
             Skill Breakdown (${item.haveSkills.length}/${item.requiredSkills.length} Matched):
           </div>
 
-          <div class="skill-match-list">
+          <div style="display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem;">
             ${item.haveSkills.map(s => `<span class="skill-pill have">✓ ${s}</span>`).join("")}
             ${item.missingSkills.map(s => `<span class="skill-pill missing">✕ ${s}</span>`).join("")}
           </div>
 
-          <div style="display:flex; gap:0.75rem; margin-top:1rem;">
-            <button class="btn btn-primary" style="padding:0.5rem 1.25rem; font-size:0.85rem;" onclick="showToast('Application sent to ${item.company} recruitment pipeline!')">
-              🚀 Apply Now
+          <div style="display:flex; gap:0.75rem;">
+            <button class="btn btn-cyber-primary" style="padding:0.45rem 1.25rem; font-size:0.82rem;" onclick="showToast('Application sent to ${item.company} pipeline!')">
+              ⚡ Apply Now
             </button>
-            <button class="btn btn-secondary" style="padding:0.5rem 1.25rem; font-size:0.85rem;" onclick="switchView('gap-report-view')">
-              📊 View Gap Roadmap
+            <button class="btn btn-cyber-outline" style="padding:0.45rem 1.25rem; font-size:0.82rem;" onclick="switchView('gap-report-view')">
+              📊 Gap Roadmap
             </button>
           </div>
         </div>
@@ -315,24 +316,24 @@ function renderGapReport() {
       container.innerHTML = `
         <div style="text-align:center; padding:2rem;">
           <div style="font-size:3rem;">🎉</div>
-          <h3>Zero Skill Gaps Detected!</h3>
-          <p style="color:#64748b;">You meet 100% of the requirements for your top matched internships.</p>
+          <h3 style="color:#ffffff;">Zero Skill Gaps Detected!</h3>
+          <p style="color:#94a3b8;">You meet 100% of the prerequisites for your target internships.</p>
         </div>
       `;
     } else {
       container.innerHTML = sortedGaps.map((item, idx) => `
-        <div class="gap-skill-item">
-          <div class="gap-info">
-            <span class="gap-rank">#${idx + 1}</span>
+        <div class="gap-item">
+          <div style="display:flex; align-items:center; gap:0.85rem;">
+            <span style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--neon-indigo);">#${idx + 1}</span>
             <div>
-              <strong style="font-size:1.05rem; color:var(--text-main);">${item.skill}</strong>
-              <div style="font-size:0.8rem; color:var(--text-muted);">
+              <strong style="font-size:1rem; color:#ffffff;">${item.skill}</strong>
+              <div style="font-size:0.78rem; color:#94a3b8;">
                 Required in ${item.freq} of your top target roles
               </div>
             </div>
           </div>
-          <button class="btn btn-primary" style="padding:0.45rem 1rem; font-size:0.82rem;" onclick="markSkillAsLearned('${item.skill}')">
-            ✅ Mark as Learned
+          <button class="btn btn-cyber-primary" style="padding:0.4rem 0.9rem; font-size:0.78rem;" onclick="markSkillAsLearned('${item.skill}')">
+            ✅ Mark Learned
           </button>
         </div>
       `).join("");
@@ -349,15 +350,25 @@ function renderGapReport() {
         datasets: [{
           label: "Frequency in Target Roles",
           data: sortedGaps.map(g => g.freq),
-          backgroundColor: "#4f46e5",
+          backgroundColor: "#6366f1",
           borderRadius: 6
         }]
       },
       options: {
         responsive: true,
-        plugins: { legend: { display: false } },
+        plugins: {
+          legend: { display: false }
+        },
         scales: {
-          y: { beginAtZero: true, ticks: { stepSize: 1 } }
+          y: {
+            beginAtZero: true,
+            ticks: { stepSize: 1, color: "#94a3b8" },
+            grid: { color: "rgba(255,255,255,0.05)" }
+          },
+          x: {
+            ticks: { color: "#cbd5e1" },
+            grid: { display: false }
+          }
         }
       }
     });
@@ -369,7 +380,7 @@ function markSkillAsLearned(skill) {
   const cb = document.querySelector(`.skill-check-tag input[value="${skill}"]`);
   if (cb) cb.checked = true;
 
-  showToast(`🎉 "${skill}" marked as learned! Match scores recalculated.`);
+  showToast(`⚡ Skill "${skill}" mastered! Compatibility updated.`);
   recalculateAndRender();
   renderGapReport();
 }

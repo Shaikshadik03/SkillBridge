@@ -3,101 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SkillBridge — Intelligent Skill-to-Internship Matching & Career Roadmap</title>
+  <title>SkillBridge — AI Skill Match & Career Progression Engine</title>
 
-  <!-- Google Fonts & Chart.js CDN -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Top Navigation -->
+  <!-- Dark Neo Navbar -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="brand" data-view-target="landing-view">
-        <div class="brand-icon">🎓</div>
-        <div class="brand-text">
-          <h1>SkillBridge</h1>
-          <p>Skill Matching & Career Gap Analyzer</p>
-        </div>
+        <div class="brand-icon">⚡</div>
+        <h1>SkillBridge</h1>
       </div>
 
       <ul class="nav-links">
         <li><button class="nav-btn active" data-view="landing-view">Home</button></li>
-        <li><button class="nav-btn" data-view="matcher-view">Find Match</button></li>
-        <li><button class="nav-btn nav-btn-highlight" data-view="gap-report-view">📊 Skill Gap Roadmap</button></li>
+        <li><button class="nav-btn" data-view="matcher-view">Skill Matcher</button></li>
+        <li><button class="nav-btn" data-view="gap-report-view">📊 Gap Roadmap</button></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Main Content Container -->
+  <!-- Main Container -->
   <main>
 
-    <!-- VIEW 1: LANDING PAGE -->
+    <!-- VIEW 1: CYBER HERO & STATS -->
     <section id="landing-view" class="view-section active">
-      <div class="hero-banner-wrap">
+      <div class="cyber-hero-grid">
         <div>
-          <div class="hero-tag">🚀 AI Career Progression Platform</div>
-          <h1 class="hero-title">Know Your <span>Skill Fit</span>.<br>Close Your <span>Gap</span>.</h1>
-          <p class="hero-desc">
-            Stop applying blindly to internships. Calculate your real-time compatibility score against top tech companies and get an actionable learning roadmap of the highest-value skills to master next.
+          <div class="cyber-badge">🔥 Next-Gen Career Mapping Engine</div>
+          <h1 class="cyber-hero-title">Know Your <span>Skill Fit</span>.<br>Close Your <span>Gap</span>.</h1>
+          <p class="cyber-hero-desc">
+            Calculate your real-time compatibility score against top tech companies and get an actionable learning roadmap of the highest-value skills to master next.
           </p>
 
           <div class="hero-actions">
-            <button class="btn btn-primary" data-view-target="matcher-view">🚀 Calculate My Skill Match</button>
-            <button class="btn btn-secondary" data-view-target="gap-report-view">📊 View Gap Roadmap</button>
+            <button class="btn btn-cyber-primary" data-view-target="matcher-view">🚀 Launch Match Engine</button>
+            <button class="btn btn-cyber-outline" data-view-target="gap-report-view">📊 View Gap Roadmap</button>
           </div>
         </div>
 
         <div>
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80" alt="Tech Career" class="hero-img-main">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80" alt="Tech Career" class="cyber-hero-img">
         </div>
       </div>
 
-      <!-- Trust Metrics -->
-      <div class="stats-banner">
-        <div class="stat-item">
-          <div class="stat-num">Live %</div>
-          <div class="stat-label">Real-time Compatibility Match</div>
+      <!-- Dark Stats -->
+      <div class="dark-stats-bar">
+        <div class="dark-stat-box">
+          <div class="dark-stat-num">Live %</div>
+          <div class="dark-stat-lbl">Real-time Set Overlap Math</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Transparent Skill Breakdown</div>
+        <div class="dark-stat-box">
+          <div class="dark-stat-num">100%</div>
+          <div class="dark-stat-lbl">Transparent Skill Matrix</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">Top 5</div>
-          <div class="stat-label">Aggregated Missing Gap Priority</div>
+        <div class="dark-stat-box">
+          <div class="dark-stat-num">Top 5</div>
+          <div class="dark-stat-lbl">Prioritized Learning Gaps</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">3x</div>
-          <div class="stat-label">Higher Selection Rate</div>
+        <div class="dark-stat-box">
+          <div class="dark-stat-num">3x</div>
+          <div class="dark-stat-lbl">Higher Placement Velocity</div>
         </div>
       </div>
     </section>
 
-    <!-- VIEW 2: INTERACTIVE SKILL MATCHER -->
+    <!-- VIEW 2: MATCHER -->
     <section id="matcher-view" class="view-section">
       <div class="matcher-split">
 
-        <!-- Left: Skill Checklist Panel -->
-        <div class="skill-panel">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; border-bottom:1px solid #e2e8f0; padding-bottom:0.75rem;">
+        <!-- Left: Dark Panel -->
+        <div class="dark-panel">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem; border-bottom:1px solid var(--glass-border); padding-bottom:0.75rem;">
             <div>
-              <h2 style="font-size:1.25rem; font-weight:800;">My Skill Profile</h2>
-              <p style="font-size:0.8rem; color:#64748b;" id="selected-skills-count">3 Skills Selected</p>
+              <h2 style="font-size:1.2rem; font-weight:800; color:#ffffff;">Skill Matrix</h2>
+              <p style="font-size:0.78rem; color:var(--text-muted);" id="selected-skills-count">3 Skills Selected</p>
             </div>
-            <span class="skill-pill have">Live Reactive</span>
+            <span class="skill-pill have">Live Sync</span>
           </div>
 
-          <!-- Domain Filter -->
           <div style="margin-bottom:1.25rem;">
-            <label style="font-size:0.8rem; font-weight:700; display:block; margin-bottom:0.35rem;">Target Domain</label>
-            <select id="filter-domain" class="btn btn-secondary" style="width:100%; padding:0.55rem; font-size:0.85rem; border-radius:8px;">
+            <label style="font-size:0.78rem; font-weight:700; display:block; margin-bottom:0.35rem; color:#cbd5e1;">Target Domain</label>
+            <select id="filter-domain" class="form-control" style="background:#090d16; color:#ffffff; border-color:var(--glass-border); border-radius:8px; padding:0.5rem; width:100%;">
               <option value="all">All Domains (Software, Data, Design, etc.)</option>
               <option value="Software Dev">Software Development</option>
               <option value="Data Science">Data Science & AI</option>
@@ -106,77 +96,62 @@
             </select>
           </div>
 
-          <!-- Category 1: Programming -->
-          <div class="skill-category-block">
-            <div class="cat-title">💻 Programming Languages</div>
-            <div class="skill-tag-group">
-              <label class="skill-check-tag"><input type="checkbox" value="Python"><span class="tag-content">Python</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="Java"><span class="tag-content">Java</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="JavaScript"><span class="tag-content">JavaScript</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="Node.js"><span class="tag-content">Node.js</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="Data Structures"><span class="tag-content">Data Structures</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="Problem Solving"><span class="tag-content">Problem Solving</span></label>
-            </div>
+          <div class="cyber-cat-title">💻 Programming Languages</div>
+          <div class="skill-tag-group">
+            <label class="skill-check-tag"><input type="checkbox" value="Python"><span class="tag-content">Python</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="Java"><span class="tag-content">Java</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="JavaScript"><span class="tag-content">JavaScript</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="Node.js"><span class="tag-content">Node.js</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="Data Structures"><span class="tag-content">Data Structures</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="Problem Solving"><span class="tag-content">Problem Solving</span></label>
           </div>
 
-          <!-- Category 2: Web Dev -->
-          <div class="skill-category-block">
-            <div class="cat-title">🌐 Web Development</div>
-            <div class="skill-tag-group">
-              <label class="skill-check-tag"><input type="checkbox" value="HTML/CSS"><span class="tag-content">HTML/CSS</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="React"><span class="tag-content">React</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="Tailwind CSS"><span class="tag-content">Tailwind CSS</span></label>
-            </div>
+          <div class="cyber-cat-title">🌐 Web Development</div>
+          <div class="skill-tag-group">
+            <label class="skill-check-tag"><input type="checkbox" value="HTML/CSS"><span class="tag-content">HTML/CSS</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="React"><span class="tag-content">React</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="Tailwind CSS"><span class="tag-content">Tailwind CSS</span></label>
           </div>
 
-          <!-- Category 3: Data Skills -->
-          <div class="skill-category-block">
-            <div class="cat-title">📊 Data & Analytics</div>
-            <div class="skill-tag-group">
-              <label class="skill-check-tag"><input type="checkbox" value="SQL"><span class="tag-content">SQL</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="Pandas"><span class="tag-content">Pandas</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="NumPy"><span class="tag-content">NumPy</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="Power BI"><span class="tag-content">Power BI</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="Excel"><span class="tag-content">Excel</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="Machine Learning"><span class="tag-content">Machine Learning</span></label>
-            </div>
+          <div class="cyber-cat-title">📊 Data & Analytics</div>
+          <div class="skill-tag-group">
+            <label class="skill-check-tag"><input type="checkbox" value="SQL"><span class="tag-content">SQL</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="Pandas"><span class="tag-content">Pandas</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="NumPy"><span class="tag-content">NumPy</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="Power BI"><span class="tag-content">Power BI</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="Excel"><span class="tag-content">Excel</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="Machine Learning"><span class="tag-content">Machine Learning</span></label>
           </div>
 
-          <!-- Category 4: Design -->
-          <div class="skill-category-block">
-            <div class="cat-title">🎨 UI/UX & Design</div>
-            <div class="skill-tag-group">
-              <label class="skill-check-tag"><input type="checkbox" value="Figma"><span class="tag-content">Figma</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="UI/UX Design"><span class="tag-content">UI/UX Design</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="Canva"><span class="tag-content">Canva</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="Adobe Photoshop"><span class="tag-content">Photoshop</span></label>
-            </div>
+          <div class="cyber-cat-title">🎨 UI/UX & Design</div>
+          <div class="skill-tag-group">
+            <label class="skill-check-tag"><input type="checkbox" value="Figma"><span class="tag-content">Figma</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="UI/UX Design"><span class="tag-content">UI/UX Design</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="Canva"><span class="tag-content">Canva</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="Adobe Photoshop"><span class="tag-content">Photoshop</span></label>
           </div>
 
-          <!-- Category 5: Soft Skills -->
-          <div class="skill-category-block">
-            <div class="cat-title">🤝 Professional Skills</div>
-            <div class="skill-tag-group">
-              <label class="skill-check-tag"><input type="checkbox" value="Communication"><span class="tag-content">Communication</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="Teamwork"><span class="tag-content">Teamwork</span></label>
-              <label class="skill-check-tag"><input type="checkbox" value="Presentation"><span class="tag-content">Presentation</span></label>
-            </div>
+          <div class="cyber-cat-title">🤝 Professional Skills</div>
+          <div class="skill-tag-group">
+            <label class="skill-check-tag"><input type="checkbox" value="Communication"><span class="tag-content">Communication</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="Teamwork"><span class="tag-content">Teamwork</span></label>
+            <label class="skill-check-tag"><input type="checkbox" value="Presentation"><span class="tag-content">Presentation</span></label>
           </div>
         </div>
 
-        <!-- Right: Ranked Match Results -->
+        <!-- Right: Results -->
         <div>
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:1px solid #e2e8f0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; border-bottom:1px solid var(--glass-border); padding-bottom:0.75rem;">
             <div>
-              <h2 style="font-size:1.35rem; font-weight:800;">Live Matched Internships</h2>
-              <p style="font-size:0.85rem; color:#64748b;">Compatibility percentage recalculates dynamically as you toggle skills</p>
+              <h2 style="font-size:1.35rem; font-weight:800; color:#ffffff;">Live Matched Internships</h2>
+              <p style="font-size:0.82rem; color:var(--text-muted);">Reactive compatibility percentage updates as skills change</p>
             </div>
-            <button class="btn btn-primary" style="padding:0.45rem 1rem; font-size:0.82rem;" data-view-target="gap-report-view">
-              📊 View Full Gap Report
+            <button class="btn btn-cyber-primary" style="padding:0.45rem 1rem; font-size:0.8rem;" data-view-target="gap-report-view">
+              📊 Full Gap Report
             </button>
           </div>
 
-          <div id="matched-internships-list" style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div id="matched-internships-list">
             <!-- Populated dynamically -->
           </div>
         </div>
@@ -184,39 +159,34 @@
       </div>
     </section>
 
-    <!-- VIEW 3: SKILL GAP REPORT & ROADMAP -->
+    <!-- VIEW 3: GAP ROADMAP -->
     <section id="gap-report-view" class="view-section">
-      <div class="gap-report-card">
+      <div class="dark-panel" style="max-width:100%;">
         <div style="margin-bottom:2rem;">
-          <h2 style="font-size:1.6rem; font-weight:800; margin-bottom:0.35rem;">🎯 Prioritized Skill Gap Roadmap</h2>
-          <p style="color:#64748b;">Skills most frequently required across your target roles. Master these to maximize your hiring readiness!</p>
+          <h2 style="font-size:1.6rem; font-weight:800; color:#ffffff;">🎯 Prioritized Skill Gap Roadmap</h2>
+          <p style="color:var(--text-muted); font-size:0.9rem;">Prerequisites most frequently required across your target roles.</p>
         </div>
 
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items:start;">
-          
-          <!-- Left: Ranked Missing Skills -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start;">
           <div>
-            <h3 style="font-size:1.1rem; font-weight:800; margin-bottom:1rem; color:var(--text-main);">
-              🔥 High-Impact Skills to Master Next:
+            <h3 style="font-size:1.05rem; font-weight:800; color:var(--neon-cyan); margin-bottom:1rem;">
+              🔥 High-Impact Prerequisites:
             </h3>
             <div id="gap-list-container">
               <!-- Dynamically rendered -->
             </div>
           </div>
 
-          <!-- Right: Gap Chart -->
-          <div style="background:var(--bg-alt); padding:1.5rem; border-radius:14px; border:1px solid var(--border-subtle);">
-            <h3 style="font-size:1.05rem; font-weight:800; margin-bottom:1rem;">📊 Required Skill Frequency Distribution</h3>
+          <div style="background:rgba(0,0,0,0.3); padding:1.5rem; border-radius:14px; border:1px solid var(--glass-border);">
+            <h3 style="font-size:1rem; font-weight:800; color:#ffffff; margin-bottom:1rem;">📊 Required Skill Frequency</h3>
             <canvas id="skillGapChart" height="220"></canvas>
           </div>
-
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Toast Notification -->
   <div id="toast-notification" class="toast-msg">
     <span>Notification message</span>
   </div>
