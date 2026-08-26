@@ -21,12 +21,12 @@
 
 ```mermaid
 flowchart TD
-    A[👨‍🎓 Student Profile] -->|Selects Skills & Domain| B[⚙️ Compatibility Calculator]
-    C[(📁 Internship Dataset - JSON)] --> B
-    B -->|Computes Jaccard / Overlap Score| D[🎯 Ranked Internship Matches]
-    D -->|Green: Acquired Skills / Red: Missing Skills| E[📄 Match Detail Card]
-    D -->|Aggregates Missing Skills| F[📊 Skill Gap Frequency Report (Chart.js)]
-    F -->|'Mark as Learned' Loop| A
+    A["👨‍🎓 Student Profile"] -->|"1. Selects Skills & Domain"| B["⚙️ Compatibility Calculator"]
+    C[("📁 Internship Dataset - JSON")] --> B
+    B -->|"2. Computes Match Percentage"| D["🎯 Ranked Internship Matches"]
+    D -->|"3. Acquired vs Missing Skills"| E["📄 Match Detail Card"]
+    D -->|"4. Aggregates Missing Skills"| F["📊 Skill Gap Frequency Report"]
+    F -->|"5. Mark as Learned Loop"| A
 ```
 
 ---
