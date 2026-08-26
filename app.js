@@ -1,139 +1,119 @@
 /**
  * SkillBridge Application Logic & Live Skill Matching Engine
- * Smart India Hackathon 2026 - SIH26044
  */
 
 const DEFAULT_INTERNSHIPS = [
   {
-    id: "INT-001",
-    company: "Zoho Corporation",
-    role: "Junior Software Engineer Intern",
-    domain: "Software Dev",
-    location: "Chennai / Remote",
-    stipend: "₹25,000/month",
-    duration: "6 Months",
-    requiredSkills: ["Java", "JavaScript", "SQL", "Data Structures", "HTML/CSS"],
-    description: "Work with Zoho core engineering teams developing scalable cloud business applications."
+    "id": "INT-001",
+    "company": "Zoho Corporation",
+    "logo": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=120&auto=format&fit=crop&q=80",
+    "role": "Junior Software Engineer Intern",
+    "domain": "Software Dev",
+    "location": "Chennai / Remote",
+    "stipend": "₹25,000/month",
+    "duration": "6 Months",
+    "requiredSkills": ["Java", "JavaScript", "SQL", "Data Structures", "HTML/CSS"],
+    "description": "Work with Zoho core engineering teams developing scalable cloud business applications."
   },
   {
-    id: "INT-002",
-    company: "Freshworks",
-    role: "Frontend Developer Intern",
-    domain: "Software Dev",
-    location: "Bengaluru / Hybrid",
-    stipend: "₹30,000/month",
-    duration: "3 Months",
-    requiredSkills: ["JavaScript", "React", "HTML/CSS", "Tailwind CSS", "Figma"],
-    description: "Design and build fast, responsive customer engagement interfaces using React."
+    "id": "INT-002",
+    "company": "Freshworks",
+    "logo": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=120&auto=format&fit=crop&q=80",
+    "role": "Frontend Developer Intern",
+    "domain": "Software Dev",
+    "location": "Bengaluru / Hybrid",
+    "stipend": "₹30,000/month",
+    "duration": "3 Months",
+    "requiredSkills": ["JavaScript", "React", "HTML/CSS", "Tailwind CSS", "Figma"],
+    "description": "Design and build fast, responsive customer engagement interfaces using React."
   },
   {
-    id: "INT-003",
-    company: "Swiggy",
-    role: "Data Analyst Intern",
-    domain: "Data Science",
-    location: "Bengaluru",
-    stipend: "₹35,000/month",
-    duration: "6 Months",
-    requiredSkills: ["Python", "SQL", "Pandas", "Power BI", "Excel"],
-    description: "Analyze delivery performance metrics and consumer demand trends using SQL & Python."
+    "id": "INT-003",
+    "company": "Swiggy",
+    "logo": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=120&auto=format&fit=crop&q=80",
+    "role": "Data Analyst Intern",
+    "domain": "Data Science",
+    "location": "Bengaluru",
+    "stipend": "₹35,000/month",
+    "duration": "6 Months",
+    "requiredSkills": ["Python", "SQL", "Pandas", "Power BI", "Excel"],
+    "description": "Analyze delivery performance metrics and consumer demand trends using SQL & Python."
   },
   {
-    id: "INT-004",
-    company: "Zerodha",
-    role: "Backend Engineering Intern",
-    domain: "Software Dev",
-    location: "Bengaluru",
-    stipend: "₹40,000/month",
-    duration: "6 Months",
-    requiredSkills: ["Python", "SQL", "Node.js", "Data Structures", "Problem Solving"],
-    description: "Build high-throughput, low-latency financial trading backend APIs."
+    "id": "INT-004",
+    "company": "Zerodha",
+    "logo": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=120&auto=format&fit=crop&q=80",
+    "role": "Backend Engineering Intern",
+    "domain": "Software Dev",
+    "location": "Bengaluru",
+    "stipend": "₹40,000/month",
+    "duration": "6 Months",
+    "requiredSkills": ["Python", "SQL", "Node.js", "Data Structures", "Problem Solving"],
+    "description": "Build high-throughput, low-latency financial trading backend APIs."
   },
   {
-    id: "INT-005",
-    company: "Infosys",
-    role: "Full Stack Developer Intern",
-    domain: "Software Dev",
-    location: "Hyderabad / Hybrid",
-    stipend: "₹20,000/month",
-    duration: "4 Months",
-    requiredSkills: ["Java", "HTML/CSS", "JavaScript", "SQL", "Communication"],
-    description: "Collaborate on enterprise modernization projects using modern web frameworks."
+    "id": "INT-005",
+    "company": "Infosys",
+    "logo": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=120&auto=format&fit=crop&q=80",
+    "role": "Full Stack Developer Intern",
+    "domain": "Software Dev",
+    "location": "Hyderabad / Hybrid",
+    "stipend": "₹20,000/month",
+    "duration": "4 Months",
+    "requiredSkills": ["Java", "HTML/CSS", "JavaScript", "SQL", "Communication"],
+    "description": "Collaborate on enterprise modernization projects using modern web frameworks."
   },
   {
-    id: "INT-006",
-    company: "Cred",
-    role: "Product & UI/UX Design Intern",
-    domain: "Design",
-    location: "Bengaluru",
-    stipend: "₹35,000/month",
-    duration: "3 Months",
-    requiredSkills: ["Figma", "UI/UX Design", "Canva", "Adobe Photoshop", "Presentation"],
-    description: "Craft slick, dark-mode visual assets and high-converting micro-interactions."
+    "id": "INT-006",
+    "company": "Cred",
+    "logo": "https://images.unsplash.com/photo-1558655146-d09347e92766?w=120&auto=format&fit=crop&q=80",
+    "role": "Product & UI/UX Design Intern",
+    "domain": "Design",
+    "location": "Bengaluru",
+    "stipend": "₹35,000/month",
+    "duration": "3 Months",
+    "requiredSkills": ["Figma", "UI/UX Design", "Canva", "Adobe Photoshop", "Presentation"],
+    "description": "Craft slick visual assets and high-converting micro-interactions."
   },
   {
-    id: "INT-007",
-    company: "Tata Consultancy Services (TCS)",
-    role: "Data Science & AI Intern",
-    domain: "Data Science",
-    location: "Pune / Remote",
-    stipend: "₹22,000/month",
-    duration: "6 Months",
-    requiredSkills: ["Python", "Machine Learning", "NumPy", "SQL", "Pandas"],
-    description: "Assist in building predictive machine learning models for predictive maintenance."
+    "id": "INT-007",
+    "company": "Tata Consultancy Services (TCS)",
+    "logo": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=120&auto=format&fit=crop&q=80",
+    "role": "Data Science & AI Intern",
+    "domain": "Data Science",
+    "location": "Pune / Remote",
+    "stipend": "₹22,000/month",
+    "duration": "6 Months",
+    "requiredSkills": ["Python", "Machine Learning", "NumPy", "SQL", "Pandas"],
+    "description": "Assist in building predictive machine learning models for predictive maintenance."
   },
   {
-    id: "INT-008",
-    company: "Razorpay",
-    role: "Web Solutions Intern",
-    domain: "Software Dev",
-    location: "Bengaluru",
-    stipend: "₹32,000/month",
-    duration: "4 Months",
-    requiredSkills: ["Node.js", "React", "JavaScript", "SQL", "Problem Solving"],
-    description: "Develop and maintain merchant payment integration SDKs and web dashboards."
-  },
-  {
-    id: "INT-009",
-    company: "Groww",
-    role: "Growth & Marketing Intern",
-    domain: "Marketing",
-    location: "Bengaluru",
-    stipend: "₹20,000/month",
-    duration: "3 Months",
-    requiredSkills: ["Communication", "Excel", "Canva", "Presentation", "Teamwork"],
-    description: "Analyze marketing campaign conversions and craft educational financial content."
-  },
-  {
-    id: "INT-010",
-    company: "Postman",
-    role: "Developer Relations & QA Intern",
-    domain: "Software Dev",
-    location: "Bengaluru / Remote",
-    stipend: "₹35,000/month",
-    duration: "6 Months",
-    requiredSkills: ["JavaScript", "Node.js", "Communication", "Problem Solving", "HTML/CSS"],
-    description: "Test API collections, write developer tutorials, and engage technical communities."
+    "id": "INT-008",
+    "company": "Razorpay",
+    "logo": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=120&auto=format&fit=crop&q=80",
+    "role": "Web Solutions Intern",
+    "domain": "Software Dev",
+    "location": "Bengaluru",
+    "stipend": "₹32,000/month",
+    "duration": "4 Months",
+    "requiredSkills": ["Node.js", "React", "JavaScript", "SQL", "Problem Solving"],
+    "description": "Develop and maintain merchant payment integration SDKs and web dashboards."
   }
 ];
 
-// App State
 let internships = [];
 let userSkills = new Set(["Python", "SQL", "HTML/CSS"]);
 let selectedDomain = "all";
-let currentSlide = 0;
 let gapChartInstance = null;
 
-// Initialize
 document.addEventListener("DOMContentLoaded", async () => {
   await loadInternships();
   setupNavigation();
   initSkillCheckboxes();
   setupDomainFilters();
   recalculateAndRender();
-  setupSlideDeck();
 });
 
-// Load Data
 async function loadInternships() {
   try {
     const res = await fetch("data/internships.json");
@@ -147,7 +127,6 @@ async function loadInternships() {
   }
 }
 
-// Navigation
 function setupNavigation() {
   const navBtns = document.querySelectorAll(".nav-btn, [data-view-target]");
   navBtns.forEach(btn => {
@@ -180,7 +159,6 @@ function switchView(viewId) {
   }
 }
 
-// Skill Checkboxes Setup
 function initSkillCheckboxes() {
   const checkboxes = document.querySelectorAll('.skill-check-tag input[type="checkbox"]');
   checkboxes.forEach(cb => {
@@ -209,14 +187,11 @@ function setupDomainFilters() {
   }
 }
 
-// Core Matching Engine
 function recalculateAndRender() {
   const scoredInternships = internships.map(item => {
     const totalReq = item.requiredSkills.length;
     const haveSkills = item.requiredSkills.filter(skill => userSkills.has(skill));
     const missingSkills = item.requiredSkills.filter(skill => !userSkills.has(skill));
-
-    // Calculate match percentage
     const matchPct = totalReq > 0 ? Math.round((haveSkills.length / totalReq) * 100) : 0;
 
     return {
@@ -227,14 +202,11 @@ function recalculateAndRender() {
     };
   });
 
-  // Filter by domain
   const filtered = scoredInternships.filter(item => {
     return selectedDomain === "all" || item.domain === selectedDomain;
   });
 
-  // Sort descending by match percentage
   filtered.sort((a, b) => b.matchPct - a.matchPct);
-
   renderMatchingCards(filtered);
   updateSkillCountLabel();
 }
@@ -259,19 +231,25 @@ function renderMatchingCards(list) {
 
     return `
       <div class="internship-card">
-        <div class="match-ring-box">
-          <div class="match-ring ${tier}" style="--pct: ${item.matchPct}">
-            <div class="match-ring-inner">${item.matchPct}%</div>
-          </div>
-          <span class="match-status-label ${tier}">${tierText}</span>
-        </div>
+        <img src="${item.logo || 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=120&auto=format&fit=crop&q=80'}" alt="${item.company}" class="company-logo-img">
 
         <div class="card-main">
-          <h3 class="role-title">${item.role}</h3>
-          <div class="company-row">
-            <span class="company-name">🏢 ${item.company}</span>
-            <span>•</span>
-            <span>📍 ${item.location}</span>
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <div>
+              <h3 class="role-title">${item.role}</h3>
+              <div class="company-row">
+                <span class="company-name">${item.company}</span>
+                <span>•</span>
+                <span>📍 ${item.location}</span>
+              </div>
+            </div>
+
+            <div class="match-ring-box">
+              <div class="match-ring ${tier}" style="--pct: ${item.matchPct}">
+                <div class="match-ring-inner">${item.matchPct}%</div>
+              </div>
+              <span class="match-status-label ${tier}">${tierText}</span>
+            </div>
           </div>
 
           <div class="meta-pills">
@@ -292,7 +270,7 @@ function renderMatchingCards(list) {
           </div>
 
           <div style="display:flex; gap:0.75rem; margin-top:1rem;">
-            <button class="btn btn-primary" style="padding:0.5rem 1.25rem; font-size:0.85rem;" onclick="showToast('Redirecting to application portal...')">
+            <button class="btn btn-primary" style="padding:0.5rem 1.25rem; font-size:0.85rem;" onclick="showToast('Application sent to ${item.company} recruitment pipeline!')">
               🚀 Apply Now
             </button>
             <button class="btn btn-secondary" style="padding:0.5rem 1.25rem; font-size:0.85rem;" onclick="switchView('gap-report-view')">
@@ -310,7 +288,6 @@ function updateSkillCountLabel() {
   if (lbl) lbl.textContent = `${userSkills.size} Skills Selected`;
 }
 
-// Skill Gap Report & Priority Ranking
 function renderGapReport() {
   const scored = internships.map(item => {
     const totalReq = item.requiredSkills.length;
@@ -319,7 +296,6 @@ function renderGapReport() {
     return { ...item, matchPct: Math.round((have.length / totalReq) * 100), missing };
   }).sort((a, b) => b.matchPct - a.matchPct);
 
-  // Take top 5 matched internships and aggregate missing skills
   const topMatches = scored.slice(0, 5);
   const gapCounts = {};
 
@@ -351,7 +327,7 @@ function renderGapReport() {
             <div>
               <strong style="font-size:1.05rem; color:var(--text-main);">${item.skill}</strong>
               <div style="font-size:0.8rem; color:var(--text-muted);">
-                Required in ${item.freq} of your top 5 target internships
+                Required in ${item.freq} of your top target roles
               </div>
             </div>
           </div>
@@ -363,7 +339,6 @@ function renderGapReport() {
     }
   }
 
-  // Render Chart.js Bar Chart
   const ctx = document.getElementById("skillGapChart")?.getContext("2d");
   if (ctx && sortedGaps.length > 0) {
     if (gapChartInstance) gapChartInstance.destroy();
@@ -372,7 +347,7 @@ function renderGapReport() {
       data: {
         labels: sortedGaps.map(g => g.skill),
         datasets: [{
-          label: "Frequency in Top Internships",
+          label: "Frequency in Target Roles",
           data: sortedGaps.map(g => g.freq),
           backgroundColor: "#4f46e5",
           borderRadius: 6
@@ -382,17 +357,13 @@ function renderGapReport() {
         responsive: true,
         plugins: { legend: { display: false } },
         scales: {
-          y: {
-            beginAtZero: true,
-            ticks: { stepSize: 1 }
-          }
+          y: { beginAtZero: true, ticks: { stepSize: 1 } }
         }
       }
     });
   }
 }
 
-// Progress Tracker "Mark as Learned"
 function markSkillAsLearned(skill) {
   userSkills.add(skill);
   const cb = document.querySelector(`.skill-check-tag input[value="${skill}"]`);
@@ -403,7 +374,6 @@ function markSkillAsLearned(skill) {
   renderGapReport();
 }
 
-// Toast
 function showToast(msg) {
   const toast = document.getElementById("toast-notification");
   if (!toast) return;
@@ -412,49 +382,4 @@ function showToast(msg) {
   setTimeout(() => {
     toast.style.display = "none";
   }, 3500);
-}
-
-// SIH Slide Deck Navigation
-function setupSlideDeck() {
-  const nextBtn = document.getElementById("slide-next-btn");
-  const prevBtn = document.getElementById("slide-prev-btn");
-
-  if (nextBtn) nextBtn.addEventListener("click", () => changeSlide(1));
-  if (prevBtn) prevBtn.addEventListener("click", () => changeSlide(-1));
-
-  window.addEventListener("keydown", (e) => {
-    if (document.getElementById("presentation-view")?.classList.contains("active")) {
-      if (e.key === "ArrowRight" || e.key === "Space") changeSlide(1);
-      if (e.key === "ArrowLeft") changeSlide(-1);
-    }
-  });
-}
-
-function changeSlide(dir) {
-  const slides = document.querySelectorAll(".slide-content");
-  const dots = document.querySelectorAll(".slide-dot");
-  if (!slides.length) return;
-
-  slides[currentSlide].classList.remove("active");
-  if (dots[currentSlide]) dots[currentSlide].classList.remove("active");
-
-  currentSlide = (currentSlide + dir + slides.length) % slides.length;
-
-  slides[currentSlide].classList.add("active");
-  if (dots[currentSlide]) dots[currentSlide].classList.add("active");
-  document.getElementById("slide-counter").textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
-}
-
-function jumpToSlide(idx) {
-  const slides = document.querySelectorAll(".slide-content");
-  const dots = document.querySelectorAll(".slide-dot");
-  if (!slides.length) return;
-
-  slides[currentSlide].classList.remove("active");
-  if (dots[currentSlide]) dots[currentSlide].classList.remove("active");
-
-  currentSlide = idx;
-  slides[currentSlide].classList.add("active");
-  if (dots[currentSlide]) dots[currentSlide].classList.add("active");
-  document.getElementById("slide-counter").textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
 }
